@@ -43,6 +43,7 @@ end
 
 get("/payment/results")do
 @the_apr= params.fetch("user_apr").to_f
+@the_apr2=@the_apr.to_fs(:percentage, { :precision => 4 } )  
 @the_years= params.fetch("user_years").to_i
 @the_pv= params.fetch("user_pv").to_f
 
