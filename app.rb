@@ -36,6 +36,35 @@ get("/square_root/results") do
   erb(:square_root_results)
 end
 
+
+get("/payment/new")do
+erb(:new_payment_calc)
+end
+
+get("/payment/results")do
+@the_apr= params.fetch("user_apr").to_f
+@the_years= params.fetch("user_years").to_i
+@the_pv= params.fetch("user_pv").to_f
+
+@the_result=(@the_apr/100/12)
+
+erb(:payment_results)
+end
+
+
+get("/random/new")do
+erb(:new_random_calc)
+end
+
+get("/random/results")do
+@the_min= params.fetch("user_min").to_f
+@the_max= params.fetch("user_max").to_f
+@the_result=   rand(@the_min..@the_max)
+
+erb(:random_results)
+end
+
+
 get("/") do
   "
   <h1>Welcome to your Sinatra App!</h1>
